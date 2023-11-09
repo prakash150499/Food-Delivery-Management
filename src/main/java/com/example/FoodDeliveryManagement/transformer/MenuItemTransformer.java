@@ -18,6 +18,7 @@ public class MenuItemTransformer {
 
     public static MenuResponse MenuItemToMenuResponse(MenuItem menuItem){
         return MenuResponse.builder()
+                .menuId(menuItem.getId())
                 .dishName(menuItem.getDishName())
                 .price(menuItem.getPrice())
                 .veg(menuItem.isVeg())

@@ -41,6 +41,12 @@ public class MenuController {
     List<String>menuResponseList=menuService.nonVegFoods();
     return new ResponseEntity(menuResponseList, HttpStatus.FOUND);
     }
+    @GetMapping("/show-all-menu")
+    public ResponseEntity showAllMenu()
+    {
+        List<MenuResponse>menuResponseList=menuService.showAllMenu();
+        return new ResponseEntity(menuResponseList, HttpStatus.FOUND);
+    }
 
 
 }

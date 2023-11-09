@@ -11,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 public class MenuResponse {
 
+    int menuId;
     String dishName;
 
     double price;

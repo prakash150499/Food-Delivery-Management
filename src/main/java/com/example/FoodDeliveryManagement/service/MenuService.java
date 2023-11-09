@@ -2,6 +2,7 @@ package com.example.FoodDeliveryManagement.service;
 import com.example.FoodDeliveryManagement.dto.response.MenuResponse;
 import com.example.FoodDeliveryManagement.model.MenuItem;
 import com.example.FoodDeliveryManagement.repository.MenuRepository;
+import com.example.FoodDeliveryManagement.transformer.MenuItemTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,5 +54,15 @@ return foodList;
 
         return foodList;
 
+    }
+
+    public List<MenuResponse> showAllMenu() {
+        List<MenuItem>menuItemList=menuRepository.findAll();
+        List<MenuResponse>menuResponseList=new ArrayList<>();
+        for(MenuItem menuItem:menuItemList)
+        {
+            menuResponseList.add(MenuItemTransformer.MenuItemToMenuResponse(menuItem));
+        }
+        return menuResponseList;
     }
 }
